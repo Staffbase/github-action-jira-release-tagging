@@ -1,0 +1,24 @@
+name: Jira Release annotations
+description: Adds release information to Jira issues
+branding:
+  icon: 'check-square'
+  color: 'blue'
+inputs:
+  issueIds:
+    description: "Comma separated list of Jira issues to update"
+    required: true
+  componentName:
+    description: "The name of the component (service) to add as label to the issues"
+    required: true
+  tagName:
+    description: "The (git) release tag to add as label to the issues"
+    required: true
+  releaseDate:
+    description: "The date to use as release date, default is 'now'"
+    required: false
+  notifyUsers:
+    description: "Whether to notify user watching the Jira issues, default is 'false'"
+    required: false
+runs:
+  using: 'node12'
+  main: './dist/index.js'
