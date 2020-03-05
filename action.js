@@ -52,7 +52,10 @@ function filterIssueIds (issueIdsStr) {
   const filtered = issueIdsStr
     .split(',')
     .map((issueId) => issueId.trim())
-    .filter((issueId) => issueId !== '' && !issueId.endsWith('-000'))
+    .filter((issueId) => issueId !== '' &&
+      !issueId.endsWith('-000') &&
+      !issueId.startsWith('PACMAN-') &&
+      !issueId.startsWith('DIABLO-'))
 
   filtered.sort()
 
