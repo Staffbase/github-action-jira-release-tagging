@@ -53,9 +53,7 @@ function filterIssueIds (issueIdsStr) {
     .split(',')
     .map((issueId) => issueId.trim())
     .filter((issueId) => issueId !== '' &&
-      !issueId.endsWith('-000') &&
-      !issueId.startsWith('PACMAN-') &&
-      !issueId.startsWith('DIABLO-'))
+      !issueId.endsWith('-000'))
 
   filtered.sort()
 
