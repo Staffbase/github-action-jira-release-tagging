@@ -14,6 +14,7 @@ A Github action that uses a tag name and a list of Issue-IDs and updates their r
 - name: Add release notes to dummy tickets
   uses: Staffbase/github-action-jira-release-tagging@master
   env:
+      JIRA_BASEURL: ${{ secrets.JIRA_BASEURL }}
       JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
       JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
   with:
