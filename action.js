@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const Jira = require('./jira');
 
 const jira = new Jira({
+  baseUrl: process.env.JIRA_BASEURL,
   email: process.env.JIRA_EMAIL,
   token: process.env.JIRA_TOKEN,
 });
