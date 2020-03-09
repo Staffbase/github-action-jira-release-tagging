@@ -1,17 +1,17 @@
-const core = require('@actions/core')
-const Jira = require('./jira')
+const core = require('@actions/core');
+const Jira = require('./jira');
 
 const jira = new Jira({
   email: process.env.JIRA_EMAIL,
   token: process.env.JIRA_TOKEN,
-})
+});
 
 async function exec ({ issueIds, componentName, tagName, releaseDate }) {
   try {
-    console.log({ issueIds, componentName, tagName, releaseDate })
+    console.log({ issueIds, componentName, tagName, releaseDate });
 
     if (issueIds.length === 0) {
-      console.log('No Jira issues given, do nothing')
+      console.log('No Jira issues given, do nothing');
 
       return
     }
@@ -21,19 +21,19 @@ async function exec ({ issueIds, componentName, tagName, releaseDate }) {
       componentName,
       tagName,
       releaseDate,
-    })
+    });
 
     if (errors.length === 0) {
       // result.issue is the issue key
-      console.log(`Updated successfully update following Jira issues: ${issueIds}`)
+      console.log(`Updated successfully update following Jira issues: ${issueIds}`);
 
       return
     }
 
-    console.log(`Failed to update some Jira tickets: ${errors}`)
+    console.log(`Failed to update some Jira tickets: ${errors}`);
     process.exit(78)
   } catch (error) {
-    console.error(error)
+    console.error(error);
     process.exit(1)
   }
 }
@@ -52,12 +52,13 @@ function filterIssueIds (issueIdsStr) {
   const filtered = issueIdsStr
     .split(',')
     .map((issueId) => issueId.trim())
+    .map((issueId) => issueId.replace(/"/g, ''))
     .filter((issueId) => issueId !== '' &&
-      !issueId.endsWith('-000'))
+      !issueId.endsWith('-000'));
 
-  filtered.sort()
+  filtered.sort();
 
   return filtered
 }
 
-module.exports = { exec, parseArgs, filterIssueIds }
+module.exports = { exec, parseArgs, filterIssueIds };
