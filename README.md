@@ -11,7 +11,7 @@ A Github action that uses a tag name and a list of Issue-IDs and updates their r
 > ##### Note: this action requires [Jira Login Action](https://github.com/marketplace/actions/jira-login)
 
 ```yaml
-- name: Add release notes to dummy tickets
+- name: Add release notes to JIRA tickets
   uses: Staffbase/github-action-jira-release-tagging@master
   env:
       JIRA_BASEURL: ${{ secrets.JIRA_BASEURL }}
