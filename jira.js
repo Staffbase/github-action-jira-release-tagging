@@ -8,6 +8,7 @@ class Jira {
   }
 
   async getIssue (issueId) {
+    console.log('getIssue ' + issueId + ' with baseURL  ' + this.baseUrl);
     const response = await fetch(`${this.baseUrl}/rest/api/3/issue/${issueId}`, {
       method: 'GET',
       headers: {

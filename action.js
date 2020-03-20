@@ -3,8 +3,8 @@ const Jira = require('./jira');
 
 const jira = new Jira({
   baseUrl: process.env.JIRA_BASEURL,
-  email: process.env.JIRA_EMAIL,
-  token: process.env.JIRA_TOKEN,
+  email: process.env.JIRA_CHANGELOG_EMAIL,
+  token: process.env.JIRA_CHANGELOG_TOKEN,
 });
 
 async function exec ({ issueIds, componentName, tagName, releaseDate }) {
@@ -39,7 +39,7 @@ async function exec ({ issueIds, componentName, tagName, releaseDate }) {
   }
 }
 
-function parseArgs () {
+function parseArgs() {
   return {
     issueIds: filterIssueIds(core.getInput('issueIds')),
     componentName: core.getInput('componentName'),
@@ -49,7 +49,7 @@ function parseArgs () {
   }
 }
 
-function filterIssueIds (issueIdsStr) {
+function filterIssueIds(issueIdsStr) {
   const filtered = issueIdsStr
     .split(',')
     .map((issueId) => issueId.trim())
