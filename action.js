@@ -3,8 +3,8 @@ const Jira = require('./jira');
 
 const jira = new Jira({
   baseUrl: process.env.JIRA_BASEURL,
-  email: process.env.JIRA_CHANGELOG_EMAIL,
-  token: process.env.JIRA_CHANGELOG_TOKEN,
+  email: process.env.JIRA_EMAIL,
+  token: process.env.JIRA_TOKEN,
 });
 
 async function exec ({ issueIds, componentName, tagName, releaseDate }) {
