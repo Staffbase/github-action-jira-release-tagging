@@ -2,8 +2,7 @@ const fetch = require('node-fetch');
 
 class Jira {
   constructor ({ baseUrl, token, email }) {
-    //this.baseUrl = baseUrl || 'https://mitarbeiterapp.atlassian.net';
-    this.baseUrl = 'https://mitarbeiterapp.atlassian.net';
+    this.baseUrl = "https://mitarbeiterapp.atlassian.net";
     this.email = email || '';
     this.token = token
   }
