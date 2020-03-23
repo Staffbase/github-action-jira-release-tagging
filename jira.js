@@ -2,13 +2,13 @@ const fetch = require('node-fetch');
 
 class Jira {
   constructor ({ baseUrl, token, email }) {
-    this.baseUrl = "https://mitarbeiterapp.atlassian.net";
+    this.baseUrl = baseUrl || 'https://mitarbeiterapp.atlassian.net';
     this.email = email || '';
     this.token = token
   }
 
   async getIssue (issueId) {
-    console.log('getIssue ' + issueId + ' with baseURL  ' + this.baseUrl + 'test soren email:' + this.email);
+    //console.log('getIssue ' + issueId + ' with baseURL  ' + this.baseUrl);
     const response = await fetch(`${this.baseUrl}/rest/api/3/issue/${issueId}`, {
       method: 'GET',
       headers: {
@@ -54,7 +54,7 @@ class Jira {
   // PUT /rest/api/3/issue/{issueIdOrKey}
   // see: https://developer.atlassian.com/cloud/jira/platform/rest/v3/?utm_source=%2Fcloud%2Fjira%2Fplatform%2Frest%2F&utm_medium=302#api-rest-api-3-issue-issueIdOrKey-put
   async updateIssue ({ issueId, releaseDate, tagName, componentName, notifyUsers }) {
-    console.log('Updating ' + issueId);
+    //console.log('Updating ' + issueId);
     const response = await fetch(`${this.baseUrl}/rest/api/3/issue/${issueId}?notifyUsers=${notifyUsers}`, {
       method: 'PUT',
       headers: {
