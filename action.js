@@ -55,7 +55,7 @@ function filterIssueIds(issueIdsStr) {
     .map((issueId) => issueId.trim())
     .map((issueId) => issueId.replace(/"/g, ''))
     .filter((issueId) => issueId !== '' &&
-      !issueId.endsWith('-000'));
+      !issueId.includes('-00'));
 
   filtered.sort();
 
