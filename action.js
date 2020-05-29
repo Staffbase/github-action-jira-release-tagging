@@ -25,14 +25,11 @@ async function exec ({ issueIds, componentName, tagName, releaseDate }) {
     });
 
     if (errors.length === 0) {
-      // result.issue is the issue key
       console.log(`Updated successfully update following Jira issues: ${issueIds}`);
-
-      return
+    } else {
+      console.log(`Failed to update some Jira tickets: ${errors}`);
     }
 
-    console.log(`Failed to update some Jira tickets: ${errors}`);
-    process.exit(78)
   } catch (error) {
     console.error(error);
     process.exit(1)
