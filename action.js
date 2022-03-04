@@ -1,4 +1,5 @@
 const core = require('@actions/core');
+const Arn = require('./arn');
 const Jira = require('./jira');
 
 const jira = new Jira({
@@ -7,6 +8,13 @@ const jira = new Jira({
   token: process.env.JIRA_TOKEN,
 });
 
+//Anne's ARN webhook url
+const webhookUrl = 'https://arn.upraise.io/arn/executewebhook/44998/fd803c08-6778-43bb-a5fc-66a3768447ac';
+const arn = new Arn({webhookUrl});
+
+// 1. update JIRA issues
+// 2. send a webhook to the ARN (Automated release notes) - JIRA app -
+//    with the componentName-tagName label
 async function exec ({ issueIds, componentName, tagName, releaseDate }) {
   try {
     console.log({ issueIds, componentName, tagName, releaseDate });
@@ -29,6 +37,8 @@ async function exec ({ issueIds, componentName, tagName, releaseDate }) {
     } else {
       console.log(`Failed to update some Jira tickets: ${errors}`);
     }
+
+    await arn.callWebhook( `${componentName}-${tagName}` );
 
   } catch (error) {
     console.error(error);
