@@ -23,4 +23,4 @@ jobs:
           path-to-signatures: 'signatures/version1/cla.json'
           path-to-document: 'https://github.com/Staffbase/github-action-jira-release-tagging/blob/master/CLA.md'
           branch: 'signatures'
-          allowlist: flaxel,soemo,timkante,axdotl,bot*
+          allowlist: flaxel,soemo,timkante,axdotl,*bot*
