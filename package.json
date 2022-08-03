@@ -20,7 +20,7 @@
   "devDependencies": {
     "@atlassian-partner-engineering/eslint-config": "^2.6.1",
     "@zeit/ncc": "^0.20.5",
-    "eslint": "^5.16.0",
+    "eslint": "^8.21.0",
     "jest": "^24.9.0",
     "jest-junit": "^6.4.0",
     "nock": "^10.0.6"
