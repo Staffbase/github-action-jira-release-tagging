@@ -1,5 +1,3 @@
-const fetch = require('node-fetch');
-
 class Arn {
   constructor ({ webhookUrl }) {
     this.webhookUrl = webhookUrl || '';
