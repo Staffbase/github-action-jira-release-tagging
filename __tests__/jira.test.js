@@ -1,5 +1,6 @@
 const Jira = require('../jira')
 
+// if you want to run the test locally, add an existing JIRA token and email to the new JIRA call
 xtest('foo', async () => {
   const jira = new Jira({ token: '***' })
 
