@@ -20,5 +20,5 @@ inputs:
     description: "Whether to notify user watching the Jira issues, default is 'false'"
     required: false
 runs:
-  using: 'node21'
+  using: 'node20'
   main: './dist/index.js'
