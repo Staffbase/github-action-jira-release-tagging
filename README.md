@@ -12,9 +12,9 @@ A GitHub action that uses a tag name and a list of Issue-IDs and updates their r
 - name: Add release notes to JIRA tickets
   uses: Staffbase/github-action-jira-release-tagging@master
   env:
-      JIRA_BASEURL: ${{ secrets.JIRA_BASEURL }}
+      JIRA_BASEURL: ${{ vars.JIRA_BASEURL }}
       JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
-      JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+      JIRA_EMAIL: ${{ vars.JIRA_EMAIL }}
   with:
       issueIds: ABC-1234,DE-5,F-67
       componentName: jira-release-action
@@ -25,6 +25,7 @@ A GitHub action that uses a tag name and a list of Issue-IDs and updates their r
 
 ### Environment variables
 
+- `JIRA_BASEURL` - base url of jira (e.g. https://instance.atlassian.net/jira)
 - `JIRA_TOKEN` - api token to use for Jira
 - `JIRA_EMAIL` - email of the owner of the Jira api token
 
