@@ -25,7 +25,7 @@ A GitHub action that uses a tag name and a list of Issue-IDs and updates their r
 
 ### Environment variables
 
-- `JIRA_BASEURL` - base url of jira (e.g. https://instance.atlassian.net/jira)
+- `JIRA_BASEURL` - base url of jira (default: https://mitarbeiterapp.atlassian.net)
 - `JIRA_TOKEN` - api token to use for Jira
 - `JIRA_EMAIL` - email of the owner of the Jira api token
 
