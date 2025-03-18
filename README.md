@@ -10,7 +10,7 @@ A GitHub action that uses a tag name and a list of Issue-IDs and updates their r
 
 ```yaml
 - name: Add release notes to JIRA tickets
-  uses: Staffbase/github-action-jira-release-tagging@master
+  uses: Staffbase/github-action-jira-release-tagging@main
   env:
       JIRA_BASEURL: ${{ vars.JIRA_BASEURL }}
       JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
@@ -21,11 +21,11 @@ A GitHub action that uses a tag name and a list of Issue-IDs and updates their r
       tagName: 2020.3.3
 ```
 
-## Action Spec:
+## Action Spec
 
 ### Environment variables
 
-- `JIRA_BASEURL` - base url of jira (default: https://mitarbeiterapp.atlassian.net)
+- `JIRA_BASEURL` - base url of jira (default: <https://mitarbeiterapp.atlassian.net>)
 - `JIRA_TOKEN` - api token to use for Jira
 - `JIRA_EMAIL` - email of the owner of the Jira api token
 
@@ -44,7 +44,6 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 ## License
 
 This project is licensed under the Apache-2.0 License - see the [LICENSE.md](LICENSE) file for details.
-
 
 <table>
   <tr>
