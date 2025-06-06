@@ -35,20 +35,12 @@ class Jira {
     return issue;
   }
 
-  async updateIssues ({ issueIds, releaseDate, tagName, componentName, notifyUsers = false }) {
+  async updateIssues ({ issueIds, tagName, componentName, notifyUsers = false }) {
     const calls = issueIds.map(async (issueId) => {
       try {
         const issue = await this.getIssueOrSubtaskParentIssue(issueId);
 
-        if (issue.fields.customfield_11108) {
-          const oldReleaseDate = new Date(issue.fields.customfield_11108);
-
-          if (oldReleaseDate > releaseDate) {
-            releaseDate = oldReleaseDate
-          }
-        }
-
-        await this.updateIssue({ issue, releaseDate, tagName, componentName, notifyUsers });
+        await this.updateIssue({ issue, tagName, componentName, notifyUsers });
 
         return null
       } catch (ex) {
@@ -63,7 +55,7 @@ class Jira {
 
   // PUT /rest/api/3/issue/{issueIdOrKey}
   // see: https://developer.atlassian.com/cloud/jira/platform/rest/v3/?utm_source=%2Fcloud%2Fjira%2Fplatform%2Frest%2F&utm_medium=302#api-rest-api-3-issue-issueIdOrKey-put
-  async updateIssue ({ issue, releaseDate, tagName, componentName, notifyUsers }) {
+  async updateIssue ({ issue, tagName, componentName, notifyUsers }) {
     const issueId = issue.key;
     //console.log('Updating ' + issueId);
     const response = await fetch(`${this.baseUrl}/rest/api/3/issue/${issueId}?notifyUsers=${notifyUsers}`, {
@@ -82,9 +74,6 @@ class Jira {
               add: `${componentName}-${tagName}`,
             },
           ],
-        },
-        fields: {
-          customfield_11108: releaseDate.toISOString(),
         },
       }),
     });

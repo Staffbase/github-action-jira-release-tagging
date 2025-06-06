@@ -7,8 +7,7 @@ xtest('foo', async () => {
   const result = await jira.updateIssues({
     issueIds: ['RE-1486', 'RE-1489'],
     componentName: 'foo-service',
-    tagName: '2020.8.4',
-    releaseDate: new Date(),
+    tagName: '2020.8.4'
   })
 
   expect(result).toEqual([])
