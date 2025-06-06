@@ -15,9 +15,9 @@ const arn = new Arn({webhookUrl});
 // 1. update JIRA issues
 // 2. send a webhook to the ARN (Automated release notes) - JIRA app -
 //    with the componentName-tagName label
-async function exec ({ issueIds, componentName, tagName, releaseDate }) {
+async function exec ({ issueIds, componentName, tagName }) {
   try {
-    console.log({ issueIds, componentName, tagName, releaseDate });
+    console.log({ issueIds, componentName, tagName });
 
     if (issueIds.length === 0) {
       console.log('No Jira issues given, do nothing');
@@ -29,7 +29,6 @@ async function exec ({ issueIds, componentName, tagName, releaseDate }) {
       issueIds,
       componentName,
       tagName,
-      releaseDate,
     });
 
     if (errors.length === 0) {
@@ -51,7 +50,6 @@ function parseArgs() {
     issueIds: filterIssueIds(core.getInput('issueIds')),
     componentName: core.getInput('componentName'),
     tagName: core.getInput('tagName') || process.env.TAGNAME,
-    releaseDate: core.getInput('releaseDate') ? new Date(core.getInput('releaseDate')) : new Date(),
     notifyUsers: core.getInput('notifyUsers') === 'true',
   }
 }
