@@ -34,6 +34,7 @@ A GitHub action that uses a tag name and a list of Issue-IDs and updates their r
 - `issueIds` (required) - Comma separated list of Jira issues to update. Example: RE-1486,RE-1489
 - `componentName` (required) - The name of the component (service) to add as label to the issues
 - `tagName` (required) - The (git) release tag to add as label to the issues
+- `releaseDate` (optional) - The date to use as release date, default is 'now'
 - `notifyUsers` (optional) - Whether to notify user watching the Jira issues, default is 'false'
 
 ## Contributing

@@ -13,6 +13,9 @@ inputs:
   tagName:
     description: "The (git) release tag to add as label to the issues"
     required: true
+  releaseDate:
+    description: "The date to use as release date, default is 'now'"
+    required: false
   notifyUsers:
     description: "Whether to notify user watching the Jira issues, default is 'false'"
     required: false
