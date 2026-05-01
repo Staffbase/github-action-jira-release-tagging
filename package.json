@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@actions/core": "2.0.2"
+    "@actions/core": "3.0.1"
   },
   "resolutions": {
     "glob": "11.1.0"
