@@ -18,6 +18,8 @@
   },
   "resolutions": {
     "glob": "11.1.0",
+    "@atlassian-partner-engineering/eslint-config/**/brace-expansion": "1.1.16",
+    "jest/**/brace-expansion": "1.1.16",
     "glob/minimatch/brace-expansion": "5.0.7"
   },
   "devDependencies": {
