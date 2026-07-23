@@ -17,7 +17,8 @@
     "@actions/core": "3.0.1"
   },
   "resolutions": {
-    "glob": "11.1.0"
+    "glob": "11.1.0",
+    "glob/minimatch/brace-expansion": "5.0.7"
   },
   "devDependencies": {
     "@atlassian-partner-engineering/eslint-config": "5.2.0",
