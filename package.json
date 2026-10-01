@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@vercel/ncc": "0.45.0",
-    "jest": "30.4.2",
+    "jest": "30.5.2",
     "jest-junit": "17.0.0",
     "nock": "15.0.0"
   },
